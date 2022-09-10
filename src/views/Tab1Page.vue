@@ -14,36 +14,7 @@
       <ion-refresher slot="fixed" @ionRefresh="doRefresh">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
-      <ion-card>
-        <img :src="state.randomCocktail.strDrinkThumb">
-        <ion-card-header>
-          <ion-card-subtitle>
-            {{ state.randomCocktail.strCategory }} | Served In 
-            {{ state.randomCocktail.strGlass }}
-          </ion-card-subtitle>
-          <ion-card-title>
-            {{ state.randomCocktail.strDrink }}
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>{{ state.randomCocktail.strInstructions }}</p>
-          <ion-list-header>
-            Ingredients
-          </ion-list-header>
-          <ion-list>
-            <div v-for="i in state.ingredientCount" :key="i">
-              <ion-item v-if="state.randomCocktail[`strIngredient${i}`]">
-                <ion-label>
-                  <span v-if="state.randomCocktail[`strMeasure${i}`]">
-                    {{ state.randomCocktail[`strMeasure${i}`] }} -
-                  </span>
-                  {{ state.randomCocktail[`strIngredient${i}`] }}
-                </ion-label>
-              </ion-item>
-            </div>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
+      <drink-card :drink="state.randomCocktail"></drink-card>
     </ion-content>
   </ion-page>
 </template>
@@ -56,21 +27,13 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
-  IonList,
-  IonListHeader,
-  IonLabel,
-  IonItem,
   IonRefresher,
   IonRefresherContent,
   IonSpinner,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent,
 } from '@ionic/vue'
 import { reactive } from 'vue'
 import axios from 'axios'
+import DrinkCard from '@/components/DrinkCard.vue'
 
 export default  defineComponent({
   name: 'Tab1Page',
@@ -80,18 +43,10 @@ export default  defineComponent({
     IonTitle,
     IonContent,
     IonPage,
-    IonList,
-    IonListHeader,
-    IonLabel,
-    IonItem,
     IonRefresher,
     IonRefresherContent,
     IonSpinner,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
+    DrinkCard,
   },
   setup() {
     const state = reactive({

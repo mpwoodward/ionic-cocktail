@@ -28,7 +28,15 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3Page.vue')
       }
     ]
-  }
+  },
+  {
+    path: '/drinks-by-ingredient/:ingredient',
+    component: () => import('@/views/DrinksByIngredient.vue')
+  },
+  {
+    path: '/drink/:id',
+    component: () => import('@/views/DrinkPage.vue')
+  },
 ]
 
 const router = createRouter({
