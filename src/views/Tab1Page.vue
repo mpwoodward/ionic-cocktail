@@ -33,6 +33,7 @@ import {
 } from '@ionic/vue'
 import { reactive } from 'vue'
 import axios from 'axios'
+import IDrinkDetails from '@/interfaces/IDrinkDetails'
 import DrinkCard from '@/components/DrinkCard.vue'
 
 export default  defineComponent({
@@ -50,7 +51,7 @@ export default  defineComponent({
   },
   setup() {
     const state = reactive({
-      randomCocktail: {},
+      randomCocktail: {} as IDrinkDetails,
       loading: false,
       ingredientCount: 15,
     })

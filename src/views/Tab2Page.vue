@@ -46,10 +46,7 @@ import {
 import { reactive } from "vue"
 import { useRouter } from "vue-router"
 import axios from "axios"
-
-interface Ingredient {
-  strIngredient1: string
-}
+import IIngredient from "@/interfaces/IIngredient"
 
 export default defineComponent({
   name: "Tab2Page",
@@ -68,7 +65,7 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const state = reactive({
-      lstIngredients: [] as Ingredient[],
+      lstIngredients: [] as IIngredient[],
       loading: false,
     })
 

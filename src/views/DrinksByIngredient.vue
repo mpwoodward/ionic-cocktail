@@ -51,12 +51,7 @@ import {
 import { reactive } from "vue"
 import { useRouter, useRoute } from "vue-router"
 import axios from "axios"
-
-interface Drink {
-  strDrink: string
-  strDrinkThumb: string
-  idDrink: string
-}
+import IDrink from '@/interfaces/IDrink'
 
 export default defineComponent({
   name: "DrinksByIngredient",
@@ -80,7 +75,7 @@ export default defineComponent({
     const ingredient = route.params.ingredient as string
 
     const state = reactive({
-      lstDrinks: [] as Drink[],
+      lstDrinks: [] as IDrink[],
       loading: false,
     })
 

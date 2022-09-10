@@ -16,7 +16,7 @@
         Ingredients
       </ion-list-header>
       <ion-list>
-        <div v-for="i in state.ingredientCount" :key="i">
+        <template v-for="i in state.ingredientCount" :key="i">
           <ion-item v-if="drink[`strIngredient${i}`]">
             <ion-label>
               <span v-if="drink[`strMeasure${i}`]">
@@ -25,7 +25,7 @@
               {{ drink[`strIngredient${i}`] }}
             </ion-label>
           </ion-item>
-        </div>
+        </template>
       </ion-list>
     </ion-card-content>
   </ion-card>
